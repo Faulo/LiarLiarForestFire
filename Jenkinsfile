@@ -14,11 +14,11 @@ unityPipeline {
     BUILD_FOR_MAC = '0'
     BUILD_FOR_WEBGL = '1'
     BUILD_FOR_ANDROID = '0'
-	BUILD_NAME = 'build'
+	BUILD_NAME = 'liar-liar-forest-fire'
     
     // which platforms to deploy to
     DEPLOY_TO_STEAM = '0'
-    DEPLOY_TO_ITCH = '0'
+    DEPLOY_TO_ITCH = '1'
     
     // configration for deploying to steam
     STEAM_ID = ''
@@ -26,7 +26,7 @@ unityPipeline {
     STEAM_CREDENTIALS = ''
     
     // configuration for deploying to itch
-    ITCH_ID = 'faulo/game-jam'
+    ITCH_ID = 'faulo/liar-liar-forest-fire'
 	ITCH_CREDENTIALS = 'Faulo-itch.io'
 }
 
