@@ -17,7 +17,31 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 3a6798bea06bd144a8c44c9f751fedd9, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 530212200448
+    m_Localized: 'Climate change is happening right now! You are the animal climate
+      council, and must make the right decisions to save the planet!
+
+      But
+      watch out, some of those newscasters might be lying to you for their own benefit!
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 746701201408
+    m_Localized: 'You did it! You survived! For now...
+
+      In the meantime, you
+      managed to salvage some of the planet! Good for you!
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 798937063424
+    m_Localized: Unfortunately, you killed the planet. Maybe someone was lying to
+      you?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
