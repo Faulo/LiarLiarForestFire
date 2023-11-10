@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Runtime {
@@ -12,11 +13,17 @@ namespace Runtime {
         [SerializeField]
         internal Button buttonPrefab;
 
+        [Header("Events")]
+        [SerializeField]
+        UnityEvent onStart = new();
+
         void Awake() {
             instance = this;
         }
 
         IEnumerator Start() {
+            onStart.Invoke();
+
             yield return mainMenuPrefab.InstantiateAndWaitForCompletion();
 
             Application.Quit();
