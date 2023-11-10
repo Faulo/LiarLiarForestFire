@@ -1,5 +1,4 @@
 using System.Collections;
-using FMODUnity;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -17,14 +16,23 @@ namespace Runtime {
         [Header("Events")]
         [SerializeField]
         UnityEvent onStart = new();
-
-        [Header("Music")]
         [SerializeField]
-        EventReference BGM;
+        UnityEvent onWin = new();
+        [SerializeField]
+        UnityEvent onLose = new();
 
         void Awake() {
             instance = this;
-            RuntimeManager.PlayOneShot(BGM);
+        }
+
+        public void OnEnable() {
+            GameState.onWin += onWin.Invoke;
+            GameState.onLose += onLose.Invoke;
+        }
+
+        public void OnDisable() {
+            GameState.onWin -= onWin.Invoke;
+            GameState.onLose -= onLose.Invoke;
         }
 
         IEnumerator Start() {
