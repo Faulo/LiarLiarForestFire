@@ -17,7 +17,24 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 3a6798bea06bd144a8c44c9f751fedd9, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 530212200448
+    m_Localized: "Der Klimawandel ist jetzt gerade im Gange! Du bist Teil der Klimakonferenz
+      der Tiere, und must die richtigen Entscheidungen treffen, um den Planeten zu
+      retten!\r\nAber achtung, manche dieser Reporter l\xFCgen dich vielleicht aus
+      eigenn\xFCtzigen Gr\xFCnden an.\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 746701201408
+    m_Localized: "Du hast es geschafft! Du hast \xFCberlebt! Zumindest bis jetzt.\r\nIn
+      der Zwischenzeit konntest du scheinbar einen Teil des Planeten retten! Sch\xF6n!\n\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 798937063424
+    m_Localized: "Leider hast du den Planeten zerst\xF6rt. Vielleicht hat dich ja
+      jemand angelogen?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

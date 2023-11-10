@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Texts
   m_TableCollectionNameGuidString: 3a6798bea06bd144a8c44c9f751fedd9
-  m_Entries: []
+  m_Entries:
+  - m_Id: 530212200448
+    m_Key: Intro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 746701201408
+    m_Key: GameOverSuccess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 798937063424
+    m_Key: GameOverFailure
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
