@@ -22,6 +22,7 @@ namespace Runtime {
 
         internal GameState(int roundCount, IEnumerable<TopicAsset> topics, IEnumerable<ReporterAsset> reporters) {
             lastRound = roundCount;
+            isRunning = roundCount > 0;
 
             this.topics.AddRange(topics);
             this.reporters.AddRange(reporters);
