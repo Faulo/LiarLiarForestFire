@@ -45,6 +45,8 @@ namespace Runtime.Screens {
                 yield return Wait.forSeconds[waitAfterPress];
             }
 
+            gameObject.SetActive(false);
+
             if (state.hasWon) {
                 yield return winPrefab.InstantiateAndWaitForCompletion();
             } else {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ namespace Runtime.Screens {
         [Header("Prefabs")]
         [SerializeField]
         GameObject newGamePrefab;
+        [SerializeField]
+        LocalizedString creditsText = new();
 
         State state;
         Button startButton;
@@ -40,6 +43,9 @@ namespace Runtime.Screens {
                 yield return new WaitWhile(() => state == State.Unknown);
 
                 switch (state) {
+                    case State.SwitchCredits:
+                        GameManager.localizedStatus = creditsText;
+                        break;
                     case State.SwitchLanguage:
                         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetOther(LocalizationSettings.SelectedLocale);
                         break;

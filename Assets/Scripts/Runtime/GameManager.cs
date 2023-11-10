@@ -11,7 +11,7 @@ namespace Runtime {
         internal static event Action<string> onStatusChange;
 
         static string m_status;
-        internal static string status {
+        static string status {
             get => m_status;
             set {
                 if (m_status != value) {
@@ -19,6 +19,26 @@ namespace Runtime {
                     onStatusChange?.Invoke(value);
                 }
             }
+        }
+        static LocalizedString m_localizedStatus;
+        internal static LocalizedString localizedStatus {
+            set {
+                if (m_localizedStatus != value) {
+                    if (m_localizedStatus is not null) {
+                        m_localizedStatus.StringChanged -= SetStatus;
+                    }
+
+                    m_localizedStatus = value;
+                    status = "";
+
+                    if (m_localizedStatus is not null) {
+                        m_localizedStatus.StringChanged += SetStatus;
+                    }
+                }
+            }
+        }
+        static void SetStatus(string status) {
+            GameManager.status = status;
         }
 
         [Header("Prefabs")]
@@ -30,41 +50,9 @@ namespace Runtime {
         [Header("Events")]
         [SerializeField]
         UnityEvent onStart = new();
-        [SerializeField]
-        UnityEvent onWin = new();
-        [SerializeField]
-        UnityEvent onLose = new();
-
-        [Header("Loca")]
-        [SerializeField]
-        LocalizedString introductionText = new();
-        [SerializeField]
-        LocalizedString winText = new();
-        [SerializeField]
-        LocalizedString loseText = new();
 
         void Awake() {
             instance = this;
-        }
-
-        public void OnEnable() {
-            GameState.onWin += HandleWin;
-            GameState.onLose += HandleLose;
-        }
-
-        void HandleWin() {
-            status = winText.GetLocalizedString();
-            onWin.Invoke();
-        }
-
-        void HandleLose() {
-            status = loseText.GetLocalizedString();
-            onLose.Invoke();
-        }
-
-        public void OnDisable() {
-            GameState.onWin -= onWin.Invoke;
-            GameState.onLose -= onLose.Invoke;
         }
 
         IEnumerator Start() {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Runtime.Screens {
@@ -12,6 +13,8 @@ namespace Runtime.Screens {
         Transform buttonContainer;
         [SerializeField]
         string continueScreenText = "Continue";
+        [SerializeField]
+        LocalizedString continueScreenStatus = new();
 
         [Header("Prefabs")]
         [SerializeField]
@@ -23,6 +26,7 @@ namespace Runtime.Screens {
 
         void Start() {
             continueButton = buttonContainer.InstantiateButton(continueScreenText, () => state = State.Start);
+            GameManager.localizedStatus = continueScreenStatus;
         }
 
         public IEnumerator WaitForCompletion() {
