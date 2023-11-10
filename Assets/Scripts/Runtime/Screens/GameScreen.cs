@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Runtime.Assets;
-using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
