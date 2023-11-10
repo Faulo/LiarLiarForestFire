@@ -16,9 +16,23 @@ namespace Runtime {
         [Header("Events")]
         [SerializeField]
         UnityEvent onStart = new();
+        [SerializeField]
+        UnityEvent onWin = new();
+        [SerializeField]
+        UnityEvent onLose = new();
 
         void Awake() {
             instance = this;
+        }
+
+        public void OnEnable() {
+            GameState.onWin += onWin.Invoke;
+            GameState.onLose += onLose.Invoke;
+        }
+
+        public void OnDisable() {
+            GameState.onWin -= onWin.Invoke;
+            GameState.onLose -= onLose.Invoke;
         }
 
         IEnumerator Start() {
