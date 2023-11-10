@@ -5,11 +5,39 @@ using Slothsoft.UnityExtensions;
 
 namespace Runtime {
     sealed record GameState {
-        internal static event Action<GameState> onChange;
+        static GameState instance;
 
-        readonly List<GameRound> rounds = new();
-        readonly List<TopicAsset> topics = new();
-        readonly List<ReporterAsset> reporters = new();
+        static event Action<GameState> onChangeInternal;
+        internal static event Action<GameState> onChange {
+            add {
+                onChangeInternal += value;
+
+                if (instance is not null) {
+                    value?.Invoke(instance);
+                }
+            }
+            remove {
+                onChangeInternal -= value;
+            }
+        }
+
+        static event Action<GameState> onStartInternal;
+        internal static event Action<GameState> onStart {
+            add {
+                onStartInternal += value;
+
+                if (instance is not null) {
+                    value?.Invoke(instance);
+                }
+            }
+            remove {
+                onStartInternal -= value;
+            }
+        }
+
+        internal readonly List<GameRound> rounds = new();
+        internal readonly List<TopicAsset> topics = new();
+        internal readonly List<ReporterAsset> reporters = new();
 
         internal int currentRound { get; private set; }
         internal int lastRound { get; private set; }
@@ -21,23 +49,27 @@ namespace Runtime {
         internal bool hasWon { get; private set; }
 
         internal GameState(int roundCount, IEnumerable<TopicAsset> topics, IEnumerable<ReporterAsset> reporters) {
+            instance = this;
+
             lastRound = roundCount;
             isRunning = roundCount > 0;
 
             this.topics.AddRange(topics);
             this.reporters.AddRange(reporters);
+
+            onStartInternal?.Invoke(this);
         }
 
         internal void AddTopic(TopicAsset topic) {
             topics.Add(topic);
 
-            onChange?.Invoke(this);
+            onChangeInternal?.Invoke(this);
         }
 
         internal void AddReporter(ReporterAsset reporter) {
             reporters.Add(reporter);
 
-            onChange?.Invoke(this);
+            onChangeInternal?.Invoke(this);
         }
 
         internal GameRound StartRound(InputAsset correctAnswer) {
@@ -48,7 +80,7 @@ namespace Runtime {
             };
 
             rounds.Add(round);
-            onChange?.Invoke(this);
+            onChangeInternal?.Invoke(this);
 
             return round;
         }
@@ -66,7 +98,7 @@ namespace Runtime {
                 hasWon = successes > mistakes;
             }
 
-            onChange?.Invoke(this);
+            onChangeInternal?.Invoke(this);
         }
     }
 }

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: R_Topic_Ocean
   m_EditorClassIdentifier: 
   announcementSprite: {fileID: 0}
-  backgroundProgressionSprites: []
+  backgroundProgressionSprites:
+  - {fileID: 21300000, guid: caeeb86c8ff073e4ebd7880f2014f41a, type: 3}
+  - {fileID: 21300000, guid: 99cfc097a4e9afc4485d3f6ba3bf43ec, type: 3}
