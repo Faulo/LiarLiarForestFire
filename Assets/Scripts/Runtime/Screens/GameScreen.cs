@@ -2,14 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Runtime {
-    sealed record GameState {
-        internal int currentRound = 1;
-        internal int lastRound = 10;
-        internal bool hasWon;
-
-        internal bool isRunning => currentRound <= lastRound;
-    }
+namespace Runtime.Screens {
     sealed class GameScreen : MonoBehaviour, IScreen {
         enum Input {
             Unknown,

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runtime {
+namespace Runtime.Screens {
     sealed class IntroductionScreen : MonoBehaviour, IScreen {
         enum State {
             Unknown,
