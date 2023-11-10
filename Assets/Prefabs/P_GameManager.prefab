@@ -68,6 +68,36 @@ MonoBehaviour:
   onLose:
     m_PersistentCalls:
       m_Calls: []
+  introductionText:
+    m_TableReference:
+      m_TableCollectionName: GUID:3a6798bea06bd144a8c44c9f751fedd9
+    m_TableEntryReference:
+      m_KeyId: 530212200448
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  winText:
+    m_TableReference:
+      m_TableCollectionName: GUID:3a6798bea06bd144a8c44c9f751fedd9
+    m_TableEntryReference:
+      m_KeyId: 746701201408
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  loseText:
+    m_TableReference:
+      m_TableCollectionName: GUID:3a6798bea06bd144a8c44c9f751fedd9
+    m_TableEntryReference:
+      m_KeyId: 798937063424
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3092184868381555496
 GameObject:
   m_ObjectHideFlags: 0
