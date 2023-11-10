@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: Switch language
     m_Metadata:
       m_Items: []
+  - m_Id: 145763629334528
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
