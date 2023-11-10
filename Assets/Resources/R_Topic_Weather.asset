@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: R_Topic_Weather
   m_EditorClassIdentifier: 
   announcementSprite: {fileID: 0}
-  backgroundProgressionSprites: []
+  backgroundProgressionSprites:
+  - {fileID: 21300000, guid: fc0fc2f9bc9a0d841ab26c2164be5e67, type: 3}
+  - {fileID: 21300000, guid: 9acdf6ebc1277ad4b95eeb92a1120437, type: 3}
