@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6478f73e58ccfaf439780a1abba30e93, type: 3}
   m_Name: R_Topic_Ground
   m_EditorClassIdentifier: 
+  successEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  failureEvent:
+    Guid:
+      Data1: 1117681302
+      Data2: 1210437179
+      Data3: 542188444
+      Data4: 599828851
+    Path: event:/Earthquake
   announcementSprite: {fileID: 0}
   backgroundProgressionSprites:
   - {fileID: 21300000, guid: cfcb301cfa8c8264d82cc7c1c2236b3c, type: 3}

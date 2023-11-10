@@ -51,6 +51,7 @@ namespace Runtime {
             onStartInternal?.Invoke(this);
         }
         internal void RaiseFinish() {
+            topic.RaiseEvent(isCorrect);
             onFinishInternal?.Invoke(this);
         }
     }

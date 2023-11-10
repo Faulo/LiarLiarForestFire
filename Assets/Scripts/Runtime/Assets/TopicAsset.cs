@@ -20,5 +20,17 @@ namespace Runtime.Assets {
         internal Sprite GetBackgroundProgressionSprite(GameState state) {
             return backgroundProgressionSprites[0];
         }
+
+        internal void RaiseEvent(bool isCorrect) {
+            if (isCorrect) {
+                if (!successEvent.IsNull) {
+                    RuntimeManager.PlayOneShot(successEvent);
+                }
+            } else {
+                if (!failureEvent.IsNull) {
+                    RuntimeManager.PlayOneShot(failureEvent);
+                }
+            }
+        }
     }
 }

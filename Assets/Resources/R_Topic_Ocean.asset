@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6478f73e58ccfaf439780a1abba30e93, type: 3}
   m_Name: R_Topic_Ocean
   m_EditorClassIdentifier: 
+  successEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  failureEvent:
+    Guid:
+      Data1: -1551604548
+      Data2: 1116152979
+      Data3: 503539362
+      Data4: 125362265
+    Path: event:/IceMelts
   announcementSprite: {fileID: 0}
   backgroundProgressionSprites:
   - {fileID: 21300000, guid: caeeb86c8ff073e4ebd7880f2014f41a, type: 3}

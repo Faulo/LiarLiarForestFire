@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3435b80a8758b94486fca21ad95ea18, type: 3}
   m_Name: R_Reporter_Fire
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d0e9d062dc23ffd4eb1acecbf7988183, type: 3}
