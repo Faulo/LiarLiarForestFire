@@ -43,7 +43,9 @@ namespace Runtime {
         internal static event Action onLose;
 
         internal readonly List<GameRound> rounds = new();
-        internal readonly List<TopicAsset> topics = new();
+        readonly Dictionary<TopicAsset, int> topicsAndDestruction = new();
+        internal int GetDestruction(TopicAsset topic) => topicsAndDestruction.GetValueOrDefault(topic);
+        internal IEnumerable<TopicAsset> topics => topicsAndDestruction.Keys;
         readonly Dictionary<ReporterAsset, TopicGroup> reportersAndTopics = new();
         internal IEnumerable<ReporterAsset> reporters => reportersAndTopics.Keys;
 
@@ -65,7 +67,9 @@ namespace Runtime {
             lastRound = roundCount;
             isRunning = roundCount > 0;
 
-            this.topics.AddRange(topics);
+            foreach (var topic in topics) {
+                topicsAndDestruction[topic] = 0;
+            }
 
             foreach (var reporter in reporters) {
                 reportersAndTopics[reporter] = CreateUniqueTopicGroup();
@@ -112,6 +116,7 @@ namespace Runtime {
             if (round.isCorrect) {
                 successes++;
             } else {
+                topicsAndDestruction[round.topic]++;
                 mistakes++;
             }
 

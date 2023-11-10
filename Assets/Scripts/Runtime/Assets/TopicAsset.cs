@@ -18,7 +18,9 @@ namespace Runtime.Assets {
         Sprite[] backgroundProgressionSprites = Array.Empty<Sprite>();
 
         internal Sprite GetBackgroundProgressionSprite(GameState state) {
-            return backgroundProgressionSprites[0];
+            int i = state.GetDestruction(this);
+            i = Mathf.Clamp(i, 0, backgroundProgressionSprites.Length - 1);
+            return backgroundProgressionSprites[i];
         }
 
         internal void RaiseEvent(bool isCorrect) {
