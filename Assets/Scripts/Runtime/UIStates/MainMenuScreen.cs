@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Runtime {
-    sealed class MainMenuState : MonoBehaviour, IUIState {
+    sealed class MainMenuScreen : MonoBehaviour, IScreen {
         enum State {
             Unknown,
             Start,
@@ -28,6 +28,7 @@ namespace Runtime {
             yield return new WaitUntil(() => startButton);
 
             do {
+                gameObject.SetActive(true);
                 startButton.Select();
 
                 yield return new WaitWhile(() => state == State.Unknown);
@@ -36,7 +37,6 @@ namespace Runtime {
                     case State.Start:
                         gameObject.SetActive(false);
                         yield return newGamePrefab.InstantiateAndWaitForCompletion();
-                        gameObject.SetActive(true);
                         state = State.Unknown;
                         break;
                 }

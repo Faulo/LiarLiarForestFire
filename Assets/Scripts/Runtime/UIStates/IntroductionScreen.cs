@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Runtime {
-    sealed class IntroductionState : MonoBehaviour, IUIState {
+    sealed class IntroductionScreen : MonoBehaviour, IScreen {
         enum State {
             Unknown,
             Start
@@ -32,6 +32,7 @@ namespace Runtime {
 
             switch (state) {
                 case State.Start:
+                    gameObject.SetActive(false);
                     yield return newGamePrefab.InstantiateAndWaitForCompletion();
                     break;
             }
