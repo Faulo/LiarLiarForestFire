@@ -1,7 +1,11 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace Runtime {
-    sealed class AudioIntensity : MonoBehaviour {
+    sealed class AudioState : MonoBehaviour {
+        [SerializeField]
+        ParamRef intensityParam = new();
+
         void OnEnable() {
             GameState.onChange += UpdateState;
         }
@@ -11,8 +15,7 @@ namespace Runtime {
         }
 
         public void UpdateState(GameState state) {
-            int intensity = state.currentRound / state.lastRound;
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Intensity", intensity);
+            intensityParam.Value = state.currentRound;
         }
     }
 }

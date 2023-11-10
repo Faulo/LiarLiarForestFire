@@ -1,15 +1,14 @@
+using FMODUnity;
 using UnityEngine;
 
-namespace AssemblyCSharp {
-
+namespace Runtime {
     sealed class AudioManager : MonoBehaviour {
 
-        [SerializeField] FMODUnity.EventReference BGM;
+        [SerializeField]
+        EventReference BGM;
 
-
-        private void Start() {
-            FMODUnity.RuntimeManager.PlayOneShot(BGM);
+        void Start() {
+            RuntimeManager.PlayOneShot(BGM);
         }
-
     }
 }
