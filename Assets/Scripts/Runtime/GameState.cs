@@ -35,6 +35,10 @@ namespace Runtime {
             }
         }
 
+        internal static event Action onWin;
+
+        internal static event Action onLose;
+
         internal readonly List<GameRound> rounds = new();
         internal readonly List<TopicAsset> topics = new();
         internal readonly List<ReporterAsset> reporters = new();
@@ -80,6 +84,8 @@ namespace Runtime {
             };
 
             rounds.Add(round);
+
+            round.RaiseStart();
             onChangeInternal?.Invoke(this);
 
             return round;
@@ -96,8 +102,15 @@ namespace Runtime {
 
             if (!isRunning) {
                 hasWon = successes > mistakes;
+
+                if (hasWon) {
+                    onWin?.Invoke();
+                } else {
+                    onLose?.Invoke();
+                }
             }
 
+            round.RaiseFinish();
             onChangeInternal?.Invoke(this);
         }
     }

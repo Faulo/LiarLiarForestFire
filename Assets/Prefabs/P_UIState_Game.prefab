@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4115522911524783455}
   - component: {fileID: 508433164646309610}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: RoomBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,6 +330,7 @@ RectTransform:
   m_Children:
   - {fileID: 8513794889860776692}
   - {fileID: 1814114029149194614}
+  - {fileID: 8675759934518230998}
   m_Father: {fileID: 8919104789332375749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -471,3 +472,57 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f63d9a944a023148a7e37da000ae21d, type: 2}
   winPrefab: {fileID: 4452241710133784420, guid: 87794c2759054b941bedcb50b7fd7107, type: 3}
   losePrefab: {fileID: 4452241710133784420, guid: e43240c45b36e4d4d8b9a03cf9043133, type: 3}
+--- !u!1 &6454528437875165172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8675759934518230998}
+  - component: {fileID: 9002422202983674949}
+  m_Layer: 5
+  m_Name: Reporters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8675759934518230998
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454528437875165172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3916282440723918742}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 192, y: 108}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9002422202983674949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454528437875165172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a73401fbae555c4a8759151d4a22e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reporterPrefabs:
+  - {fileID: 0}
+  - {fileID: 5530329242131800718, guid: e514051b8f173274daff797f692b4b6f, type: 3}
+  - {fileID: 5530329242131800718, guid: 7beb4e1357bd3264f9db7bf868999a24, type: 3}
+  - {fileID: 5530329242131800718, guid: b3b4b4190f128b74585185fc3a885714, type: 3}
+  - {fileID: 5530329242131800718, guid: 1acaf8837eb2f3c4dba4f62d4a9a72ac, type: 3}

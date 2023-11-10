@@ -7,6 +7,6 @@ namespace Runtime.Assets {
         [SerializeField]
         internal InputActionReference action;
         [SerializeField]
-        Sprite reporterSprite;
+        internal Sprite buttonSprite;
     }
 }
