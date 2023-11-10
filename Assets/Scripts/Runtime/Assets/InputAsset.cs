@@ -5,7 +5,7 @@ namespace Runtime.Assets {
     [CreateAssetMenu]
     sealed class InputAsset : ScriptableObject {
         [SerializeField]
-        internal InputActionReference action = new();
+        internal InputActionReference action;
         [SerializeField]
         Sprite reporterSprite;
     }
