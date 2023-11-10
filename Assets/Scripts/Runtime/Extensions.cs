@@ -28,7 +28,7 @@ namespace Runtime {
         internal static IEnumerator InstantiateAndWaitForCompletion(this GameObject prefab) {
             var instance = UnityObject.Instantiate(prefab);
 
-            foreach (var state in instance.GetComponents<IUIState>()) {
+            foreach (var state in instance.GetComponents<IScreen>()) {
                 yield return state.WaitForCompletion();
             }
 

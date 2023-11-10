@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 
 namespace Runtime {
-    interface IUIState {
+    interface IScreen {
         IEnumerator WaitForCompletion();
     }
 }

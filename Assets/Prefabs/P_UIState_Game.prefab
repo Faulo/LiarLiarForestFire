@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2003485955541601102}
   - component: {fileID: 6321378451359233047}
   - component: {fileID: 7626277960227868137}
+  - component: {fileID: 4673277011027093353}
   m_Layer: 5
   m_Name: P_UIState_Game
   m_TagString: Untagged
@@ -101,3 +102,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4673277011027093353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452241710133784420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60eb59b1831cbd40bc9cdf352dbeb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPrefab: {fileID: 4452241710133784420, guid: 87794c2759054b941bedcb50b7fd7107, type: 3}
+  losePrefab: {fileID: 4452241710133784420, guid: e43240c45b36e4d4d8b9a03cf9043133, type: 3}
