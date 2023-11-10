@@ -11,7 +11,7 @@ namespace Runtime {
         internal static event Action<string> onStatusChange;
 
         static string m_status;
-        internal static string status {
+        static string status {
             get => m_status;
             set {
                 if (m_status != value) {

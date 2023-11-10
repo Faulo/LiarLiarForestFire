@@ -26,7 +26,7 @@ namespace Runtime.Screens {
 
         void Start() {
             continueButton = buttonContainer.InstantiateButton(continueScreenText, () => state = State.Start);
-            GameManager.status = continueScreenStatus.GetLocalizedString();
+            GameManager.localizedStatus = continueScreenStatus;
         }
 
         public IEnumerator WaitForCompletion() {
