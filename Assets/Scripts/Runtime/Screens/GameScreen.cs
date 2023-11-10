@@ -13,7 +13,11 @@ namespace Runtime.Screens {
         [SerializeField, Range(0, 100)]
         int numberOfRounds = 10;
         [SerializeField, Range(0, 10)]
-        float waitAfterPress = 1;
+        float waitAfterSuccess = 1;
+        [SerializeField, Range(0, 10)]
+        float waitAfterFailure = 1;
+        [SerializeField, Range(0, 10)]
+        float waitAfterGame = 1;
         [SerializeField]
         InputAsset[] inputs = Array.Empty<InputAsset>();
         [SerializeField]
@@ -31,9 +35,12 @@ namespace Runtime.Screens {
             var state = new GameState(numberOfRounds, topics, reporters);
 
             while (state.isRunning) {
-                yield return CreateRound(state);
-                yield return Wait.forSeconds[waitAfterPress];
+                yield return ProcessRound(state);
             }
+
+            state.FinishGame();
+
+            yield return Wait.forSeconds[waitAfterGame];
 
             gameObject.SetActive(false);
 
@@ -44,7 +51,7 @@ namespace Runtime.Screens {
             }
         }
 
-        IEnumerator CreateRound(GameState state) {
+        IEnumerator ProcessRound(GameState state) {
             var round = state.StartRound(inputs);
 
             actionsInstance = Instantiate(actionsAsset);
@@ -60,6 +67,8 @@ namespace Runtime.Screens {
             Destroy(actionsInstance);
 
             state.FinishRound(round);
+
+            yield return Wait.forSeconds[round.isCorrect ? waitAfterSuccess : waitAfterFailure];
         }
     }
 }

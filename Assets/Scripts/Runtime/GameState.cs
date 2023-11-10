@@ -147,18 +147,18 @@ namespace Runtime {
 
             isRunning = currentRound < lastRound && notDestructedTopics.Any();
 
-            if (!isRunning) {
-                hasWon = notDestructedTopics.Any();
-
-                if (hasWon) {
-                    onWin?.Invoke();
-                } else {
-                    onLose?.Invoke();
-                }
-            }
-
             round.RaiseFinish();
             onChangeInternal?.Invoke(this);
+        }
+
+        internal void FinishGame() {
+            hasWon = notDestructedTopics.Any();
+
+            if (hasWon) {
+                onWin?.Invoke();
+            } else {
+                onLose?.Invoke();
+            }
         }
     }
 }
