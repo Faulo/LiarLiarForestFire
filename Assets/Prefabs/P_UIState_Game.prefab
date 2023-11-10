@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsAsset: {fileID: -944628639613478452, guid: 73f5112e6472f1a47b5a697508d6b6c9, type: 3}
-  numberOfRounds: 10
+  numberOfRounds: 15
   waitAfterPress: 1
   inputs:
   - {fileID: 11400000, guid: e000e4247481a5a4db954e696d4d4e12, type: 2}
