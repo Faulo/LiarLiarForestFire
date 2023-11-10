@@ -8,7 +8,7 @@ namespace Runtime {
         [SerializeField, FormerlySerializedAs("BGM")]
         EventReference reference;
 
-        void PlayOneShot() {
+        public void PlayOneShot() {
             RuntimeManager.PlayOneShot(reference);
         }
     }
