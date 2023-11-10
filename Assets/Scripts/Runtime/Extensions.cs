@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -37,8 +38,10 @@ namespace Runtime {
             }
         }
 
-        internal static IEnumerator InstantiateAndWaitForCompletion(this GameObject prefab) {
+        internal static IEnumerator InstantiateAndWaitForCompletion(this GameObject prefab, Action<GameObject> action = null) {
             var instance = UnityObject.Instantiate(prefab);
+
+            action?.Invoke(instance);
 
             foreach (var state in instance.GetComponents<IScreen>()) {
                 yield return state.WaitForCompletion();

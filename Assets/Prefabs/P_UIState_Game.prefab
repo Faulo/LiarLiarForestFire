@@ -1041,6 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionsAsset: {fileID: -944628639613478452, guid: 73f5112e6472f1a47b5a697508d6b6c9, type: 3}
   numberOfRounds: 15
+  waitAfterSign: 0.5
   waitAfterSuccess: 2
   waitAfterFailure: 5
   waitAfterGame: 1
@@ -1061,6 +1062,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f63d9a944a023148a7e37da000ae21d, type: 2}
   winPrefab: {fileID: 4452241710133784420, guid: 87794c2759054b941bedcb50b7fd7107, type: 3}
   losePrefab: {fileID: 4452241710133784420, guid: e43240c45b36e4d4d8b9a03cf9043133, type: 3}
+  signPrefab: {fileID: 4452241710133784420, guid: 83698d0f49cd44a47b6dd6fd7a67f653, type: 3}
 --- !u!114 &1613801967461407342
 MonoBehaviour:
   m_ObjectHideFlags: 0
