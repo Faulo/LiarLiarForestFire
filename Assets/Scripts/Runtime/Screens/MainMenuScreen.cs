@@ -10,6 +10,7 @@ namespace Runtime.Screens {
             Start,
             Exit,
             SwitchLanguage,
+            SwitchCredits,
         }
         [SerializeField]
         Transform buttonContainer;
@@ -24,6 +25,7 @@ namespace Runtime.Screens {
         void Start() {
             startButton = buttonContainer.InstantiateButton("Start", () => state = State.Start);
             buttonContainer.InstantiateButton("Switch language", () => state = State.SwitchLanguage);
+            buttonContainer.InstantiateButton("Credits", () => state = State.SwitchCredits);
             buttonContainer.InstantiateButton("Exit", () => state = State.Exit);
         }
 
