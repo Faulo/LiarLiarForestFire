@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fd9cde0a-c2c9-4109-a03e-8d2a6e0bf9e0}">
+		<property name="assetPath">
+			<value>LiarLiarForestFire Success - 0003 - Instrument - Flavor.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{98eb02df-c499-42eb-8f1d-c4e439528841}</destination>
+		</relationship>
+	</object>
+</objects>
