@@ -14,7 +14,9 @@ namespace Runtime {
 
             var localizedLabel = new LocalizedString("Buttons", label);
             localizedLabel.StringChanged += button.BindTo;
+#if !UNITY_WEBGL
             button.BindTo(localizedLabel.GetLocalizedString());
+#endif
 
             button.onClick.AddListener(onClick);
 
