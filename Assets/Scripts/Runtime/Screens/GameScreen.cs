@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Runtime.Assets;
-using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -50,7 +49,7 @@ namespace Runtime.Screens {
         }
 
         IEnumerator CreateRound(GameState state) {
-            var round = state.StartRound(inputs.RandomElement());
+            var round = state.StartRound(inputs);
 
             actionsInstance = Instantiate(actionsAsset);
 

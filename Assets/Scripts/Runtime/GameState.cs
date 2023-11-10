@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.Assets;
 using Slothsoft.UnityExtensions;
+using UnityRandom = UnityEngine.Random;
 
 namespace Runtime {
     sealed record GameState {
@@ -41,7 +43,11 @@ namespace Runtime {
 
         internal readonly List<GameRound> rounds = new();
         internal readonly List<TopicAsset> topics = new();
-        internal readonly List<ReporterAsset> reporters = new();
+        readonly Dictionary<ReporterAsset, TopicGroup> reportersAndTopics = new();
+        internal IEnumerable<ReporterAsset> reporters => reportersAndTopics.Keys;
+
+        bool IsTruthfulAbout(ReporterAsset reporter, TopicAsset topic) => reportersAndTopics[reporter]
+            .Contains(topic);
 
         internal int currentRound { get; private set; }
         internal int lastRound { get; private set; }
@@ -59,29 +65,39 @@ namespace Runtime {
             isRunning = roundCount > 0;
 
             this.topics.AddRange(topics);
-            this.reporters.AddRange(reporters);
+
+            foreach (var reporter in reporters) {
+                reportersAndTopics[reporter] = CreateUniqueTopicGroup();
+            }
 
             onStartInternal?.Invoke(this);
         }
 
-        internal void AddTopic(TopicAsset topic) {
-            topics.Add(topic);
-
-            onChangeInternal?.Invoke(this);
+        TopicGroup CreateUniqueTopicGroup() {
+            TopicGroup topicGroup = default;
+            do {
+                topicGroup = new TopicGroup(topics.Shuffle().Take(UnityRandom.Range(0, 4)).ToList());
+            } while (reportersAndTopics.ContainsValue(topicGroup));
+            return topicGroup;
         }
 
-        internal void AddReporter(ReporterAsset reporter) {
-            reporters.Add(reporter);
-
-            onChangeInternal?.Invoke(this);
-        }
-
-        internal GameRound StartRound(InputAsset correctAnswer) {
+        internal GameRound StartRound(IEnumerable<InputAsset> answers) {
             currentRound++;
+
+            var correctAnswer = answers.RandomElement();
+
             var round = new GameRound {
                 correctAnswer = correctAnswer,
                 topic = topics.RandomElement()
             };
+
+            int reporterCount = UnityRandom.Range(1, 4);
+            foreach (var reporter in reporters.Shuffle().Take(reporterCount)) {
+                var input = IsTruthfulAbout(reporter, round.topic)
+                    ? correctAnswer
+                    : answers.Without(correctAnswer).RandomElement();
+                round.reporterAndInputs[reporter] = input;
+            }
 
             rounds.Add(round);
 
