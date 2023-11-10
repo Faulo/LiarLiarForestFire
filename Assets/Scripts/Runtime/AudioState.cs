@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Runtime {
     sealed class AudioState : MonoBehaviour {
-        [SerializeField]
+        [SerializeField, ParamRef]
         string intensityParam = "Intensity";
 
         void OnEnable() {
