@@ -16,10 +16,11 @@ namespace Runtime.Assets {
         internal Sprite announcementSprite;
         [SerializeField]
         Sprite[] backgroundProgressionSprites = Array.Empty<Sprite>();
+        internal int maxDestruction => backgroundProgressionSprites.Length - 1;
 
         internal Sprite GetBackgroundProgressionSprite(GameState state) {
             int i = state.GetDestruction(this);
-            i = Mathf.Clamp(i, 0, backgroundProgressionSprites.Length - 1);
+            i = Mathf.Clamp(i, 0, maxDestruction);
             return backgroundProgressionSprites[i];
         }
 

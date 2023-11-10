@@ -27,16 +27,6 @@ namespace Runtime.Screens {
         [SerializeField]
         GameObject losePrefab;
 
-        GameState state;
-
-        void OnEnable() {
-        }
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
         public IEnumerator WaitForCompletion() {
             var state = new GameState(numberOfRounds, topics, reporters);
 

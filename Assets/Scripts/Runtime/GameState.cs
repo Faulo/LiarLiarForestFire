@@ -45,6 +45,15 @@ namespace Runtime {
         internal readonly List<GameRound> rounds = new();
         readonly Dictionary<TopicAsset, int> topicsAndDestruction = new();
         internal int GetDestruction(TopicAsset topic) => topicsAndDestruction.GetValueOrDefault(topic);
+        IEnumerable<TopicAsset> notDestructedTopics {
+            get {
+                foreach (var (topic, destruction) in topicsAndDestruction) {
+                    if (destruction < topic.maxDestruction) {
+                        yield return topic;
+                    }
+                }
+            }
+        }
         internal IEnumerable<TopicAsset> topics => topicsAndDestruction.Keys;
         readonly Dictionary<ReporterAsset, TopicGroup> reportersAndTopics = new();
         internal IEnumerable<ReporterAsset> reporters => reportersAndTopics.Keys;
@@ -93,7 +102,7 @@ namespace Runtime {
 
             var round = new GameRound {
                 correctAnswer = correctAnswer,
-                topic = topics.RandomElement()
+                topic = notDestructedTopics.RandomElement()
             };
 
             int reporterCount = Mathf.Min(4, currentRound);
@@ -120,10 +129,10 @@ namespace Runtime {
                 mistakes++;
             }
 
-            isRunning = currentRound < lastRound;
+            isRunning = currentRound < lastRound && notDestructedTopics.Any();
 
             if (!isRunning) {
-                hasWon = successes > mistakes;
+                hasWon = notDestructedTopics.Any();
 
                 if (hasWon) {
                     onWin?.Invoke();
