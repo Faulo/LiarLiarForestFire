@@ -25,7 +25,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 746701201408
     m_Localized: "Du hast es geschafft! Du hast \xFCberlebt! Zumindest bis jetzt.\r
-      In der Zwischenzeit konntest du scheinbar einen Teil des Planeten retten! Sch\xF6n!\n"
+      \nIn der Zwischenzeit konntest du scheinbar einen Teil des Planeten retten!
+      Sch\xF6n!\n"
     m_Metadata:
       m_Items: []
   - m_Id: 798937063424
