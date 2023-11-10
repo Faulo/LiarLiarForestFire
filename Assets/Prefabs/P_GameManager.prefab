@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2241920211809497253}
   - component: {fileID: 7102554108511595388}
-  - component: {fileID: -8953076234066820025}
   - component: {fileID: 6341447601593361308}
   m_Layer: 0
   m_Name: P_GameManager
@@ -48,25 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPrefab: {fileID: 4452241710133784420, guid: b88cb89c24c21ce44a8636fe7fca1da5, type: 3}
   buttonPrefab: {fileID: 9141477123796474086, guid: 002908911879b3b44aa9f126bfcf7ee1, type: 3}
---- !u!114 &-8953076234066820025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071990915453936401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6dd623a1741e63469cf556ceff81d0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BGM:
-    Guid:
-      Data1: 578530777
-      Data2: 1103148109
-      Data3: 123145910
-      Data4: 1168879078
-    Path: event:/BGM
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6341447601593361308
 MonoBehaviour:
   m_ObjectHideFlags: 0

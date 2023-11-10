@@ -1,4 +1,5 @@
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -17,8 +18,13 @@ namespace Runtime {
         [SerializeField]
         UnityEvent onStart = new();
 
+        [Header("Music")]
+        [SerializeField]
+        EventReference BGM;
+
         void Awake() {
             instance = this;
+            RuntimeManager.PlayOneShot(BGM);
         }
 
         IEnumerator Start() {
