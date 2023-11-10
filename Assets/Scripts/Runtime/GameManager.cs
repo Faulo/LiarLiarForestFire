@@ -20,6 +20,26 @@ namespace Runtime {
                 }
             }
         }
+        static LocalizedString m_localizedStatus;
+        internal static LocalizedString localizedStatus {
+            set {
+                if (m_localizedStatus != value) {
+                    if (m_localizedStatus is not null) {
+                        m_localizedStatus.StringChanged -= SetStatus;
+                    }
+
+                    m_localizedStatus = value;
+                    status = "";
+
+                    if (m_localizedStatus is not null) {
+                        m_localizedStatus.StringChanged += SetStatus;
+                    }
+                }
+            }
+        }
+        static void SetStatus(string status) {
+            GameManager.status = status;
+        }
 
         [Header("Prefabs")]
         [SerializeField]
