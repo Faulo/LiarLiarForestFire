@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 using UnityObject = UnityEngine.Object;
 
@@ -9,7 +10,10 @@ namespace Runtime {
     static class Extensions {
         internal static Button InstantiateButton(this Transform parent, string label, UnityAction onClick, bool select = false) {
             var button = UnityObject.Instantiate(GameManager.instance.buttonPrefab, parent);
+
             button.BindTo(label);
+            new LocalizedString("Buttons", label).StringChanged += button.BindTo;
+
             button.onClick.AddListener(onClick);
 
             if (select) {
