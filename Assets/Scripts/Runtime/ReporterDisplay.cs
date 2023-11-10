@@ -11,7 +11,7 @@ namespace Runtime {
 
         public void Bind((ReporterAsset reporter, InputAsset input) model) {
             reporterImage.sprite = model.reporter.sprite;
-            inputImage.sprite = model.input.buttonSprite;
+            inputImage.sprite = model.input.inputSprite;
         }
     }
 }
