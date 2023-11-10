@@ -29,7 +29,7 @@ namespace Runtime {
         }
 
         public void UpdateState(GameState state) {
-            RuntimeManager.StudioSystem.setParameterByName(intensityParam, state.currentRound);
+            RuntimeManager.StudioSystem.setParameterByName(intensityParam, state.mistakes);
         }
     }
 }
