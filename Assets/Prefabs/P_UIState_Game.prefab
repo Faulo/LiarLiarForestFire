@@ -114,5 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60eb59b1831cbd40bc9cdf352dbeb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionsAsset: {fileID: -944628639613478452, guid: 73f5112e6472f1a47b5a697508d6b6c9, type: 3}
   winPrefab: {fileID: 4452241710133784420, guid: 87794c2759054b941bedcb50b7fd7107, type: 3}
   losePrefab: {fileID: 4452241710133784420, guid: e43240c45b36e4d4d8b9a03cf9043133, type: 3}
