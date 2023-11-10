@@ -4,16 +4,19 @@ using Runtime.Assets;
 
 namespace Runtime {
     sealed record TopicGroup {
-        internal TopicAsset first;
-        internal TopicAsset second;
-        internal TopicAsset third;
-        internal TopicAsset fourth;
+        internal readonly TopicAsset first;
+        internal readonly TopicAsset second;
+        internal readonly TopicAsset third;
+        internal readonly TopicAsset fourth;
 
-        public TopicGroup(IList<TopicAsset> enumerable) {
-            first = enumerable.ElementAtOrDefault(0);
-            second = enumerable.ElementAtOrDefault(1);
-            third = enumerable.ElementAtOrDefault(2);
-            fourth = enumerable.ElementAtOrDefault(3);
+        public TopicGroup(IEnumerable<TopicAsset> assets) {
+            var list = assets
+                .OrderBy(a => a.name)
+                .ToList();
+            first = list.ElementAtOrDefault(0);
+            second = list.ElementAtOrDefault(1);
+            third = list.ElementAtOrDefault(2);
+            fourth = list.ElementAtOrDefault(3);
         }
 
         internal bool Contains(TopicAsset asset) {
@@ -22,5 +25,7 @@ namespace Runtime {
                 || asset == third
                 || asset == fourth;
         }
+
+        public override string ToString() => $"{first} | {second} | {third} | {fourth}";
     }
 }

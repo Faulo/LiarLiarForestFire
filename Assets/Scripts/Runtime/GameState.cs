@@ -60,6 +60,11 @@ namespace Runtime {
 
         bool IsTruthfulAbout(ReporterAsset reporter, TopicAsset topic) => reportersAndTopics[reporter]
             .Contains(topic);
+        IEnumerable<ReporterAsset> GetTruthfulReporters(TopicAsset topic) => reportersAndTopics
+                .Where(value => value.Value.Contains(topic))
+                .Select(value => value.Key);
+        bool HasTruthfulReporter(TopicAsset topic) => reportersAndTopics
+                .Any(value => value.Value.Contains(topic));
 
         internal int currentRound { get; private set; }
         internal int lastRound { get; private set; }
@@ -70,7 +75,7 @@ namespace Runtime {
         internal bool isRunning { get; private set; }
         internal bool hasWon { get; private set; }
 
-        internal GameState(int roundCount, IEnumerable<TopicAsset> topics, IEnumerable<ReporterAsset> reporters) {
+        internal GameState(int roundCount, IReadOnlyList<TopicAsset> topics, IReadOnlyList<ReporterAsset> reporters) {
             instance = this;
 
             lastRound = roundCount;
@@ -80,17 +85,24 @@ namespace Runtime {
                 topicsAndDestruction[topic] = 0;
             }
 
-            foreach (var reporter in reporters) {
-                reportersAndTopics[reporter] = CreateUniqueTopicGroup();
-            }
+            do {
+                CreateReporters(topics, reporters);
+            } while (!topics.All(HasTruthfulReporter));
 
             onStartInternal?.Invoke(this);
         }
 
-        TopicGroup CreateUniqueTopicGroup() {
+        void CreateReporters(IReadOnlyList<TopicAsset> topics, IReadOnlyList<ReporterAsset> reporters) {
+            reportersAndTopics.Clear();
+            foreach (var reporter in reporters) {
+                reportersAndTopics[reporter] = CreateUniqueTopicGroup(topics);
+            }
+        }
+
+        TopicGroup CreateUniqueTopicGroup(IReadOnlyList<TopicAsset> topics) {
             TopicGroup topicGroup = default;
             do {
-                topicGroup = new TopicGroup(topics.Shuffle().Take(UnityRandom.Range(0, 4)).ToList());
+                topicGroup = new TopicGroup(topics.Shuffle().Take(UnityRandom.Range(1, 5)));
             } while (reportersAndTopics.ContainsValue(topicGroup));
             return topicGroup;
         }
@@ -106,7 +118,11 @@ namespace Runtime {
             };
 
             int reporterCount = Mathf.Min(4, currentRound);
-            foreach (var reporter in reporters.Shuffle().Take(reporterCount)) {
+
+            var truthReporter = GetTruthfulReporters(round.topic).RandomElement();
+            round.reporterAndInputs[truthReporter] = correctAnswer;
+
+            foreach (var reporter in reporters.Without(truthReporter).Shuffle().Take(reporterCount - 1)) {
                 var input = IsTruthfulAbout(reporter, round.topic)
                     ? correctAnswer
                     : answers.Without(correctAnswer).RandomElement();
@@ -131,18 +147,18 @@ namespace Runtime {
 
             isRunning = currentRound < lastRound && notDestructedTopics.Any();
 
-            if (!isRunning) {
-                hasWon = notDestructedTopics.Any();
-
-                if (hasWon) {
-                    onWin?.Invoke();
-                } else {
-                    onLose?.Invoke();
-                }
-            }
-
             round.RaiseFinish();
             onChangeInternal?.Invoke(this);
+        }
+
+        internal void FinishGame() {
+            hasWon = notDestructedTopics.Any();
+
+            if (hasWon) {
+                onWin?.Invoke();
+            } else {
+                onLose?.Invoke();
+            }
         }
     }
 }
