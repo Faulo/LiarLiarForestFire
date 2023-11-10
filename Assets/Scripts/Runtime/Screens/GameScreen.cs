@@ -1,19 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Runtime.Assets;
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Runtime.Screens {
     sealed class GameScreen : MonoBehaviour, IScreen {
-        enum Input {
-            Unknown,
-            A,
-            B,
-            X,
-            Y
-        }
         [SerializeField]
         InputActionAsset actionsAsset;
         InputActionAsset actionsInstance;
+        [SerializeField, Range(0, 100)]
+        int numberOfRounds = 10;
+        [SerializeField]
+        InputAsset[] inputs = Array.Empty<InputAsset>();
+        [SerializeField]
+        TopicAsset[] topics = Array.Empty<TopicAsset>();
+        [SerializeField]
+        ReporterAsset[] reporters = Array.Empty<ReporterAsset>();
 
         [Header("Prefabs")]
         [SerializeField]
@@ -21,32 +25,21 @@ namespace Runtime.Screens {
         [SerializeField]
         GameObject losePrefab;
 
-        Input input;
+        GameState state;
 
         void OnEnable() {
-            actionsInstance = Instantiate(actionsAsset);
-            actionsInstance.FindAction(nameof(Input.A)).performed += _ => input = Input.A;
-            actionsInstance.FindAction(nameof(Input.B)).performed += _ => input = Input.B;
-            actionsInstance.FindAction(nameof(Input.X)).performed += _ => input = Input.X;
-            actionsInstance.FindAction(nameof(Input.Y)).performed += _ => input = Input.Y;
-            actionsInstance.Enable();
         }
         void OnDisable() {
-            Destroy(actionsInstance);
         }
 
         void Start() {
         }
 
         public IEnumerator WaitForCompletion() {
-            var state = new GameState();
+            var state = new GameState(numberOfRounds, topics, reporters);
 
             while (state.isRunning) {
-                input = Input.Unknown;
-
-                yield return new WaitWhile(() => input == Input.Unknown);
-
-                state.currentRound++;
+                yield return CreateRound(state);
             }
 
             if (state.hasWon) {
@@ -54,6 +47,24 @@ namespace Runtime.Screens {
             } else {
                 yield return losePrefab.InstantiateAndWaitForCompletion();
             }
+        }
+
+        IEnumerator CreateRound(GameState state) {
+            var round = state.StartRound(inputs.RandomElement());
+
+            actionsInstance = Instantiate(actionsAsset);
+
+            foreach (var input in inputs) {
+                actionsInstance.FindAction(input.action.name).performed += _ => round.guessedAnswer = input;
+            }
+
+            actionsInstance.Enable();
+
+            yield return new WaitUntil(() => round.guessedAnswer);
+
+            state.FinishRound(round);
+
+            Destroy(actionsInstance);
         }
     }
 }
