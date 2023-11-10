@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonContainer: {fileID: 6779648650614502812}
-  newGameState: {fileID: 0}
+  newGamePrefab: {fileID: 4452241710133784420, guid: a463c7dbbc75ac54da9c5165de11837a, type: 3}
 --- !u!1 &6875068549252553985
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_Right: 25
     m_Top: 25
     m_Bottom: 25
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 25
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1

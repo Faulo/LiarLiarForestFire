@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Runtime {
-    sealed class MainMenuState : UIState {
+    sealed class MainMenuState : MonoBehaviour, IUIState {
         enum State {
             Unknown,
             Start,
@@ -10,8 +10,10 @@ namespace Runtime {
         }
         [SerializeField]
         Transform buttonContainer;
+
+        [Header("Prefabs")]
         [SerializeField]
-        UIState newGameState;
+        GameObject newGamePrefab;
 
         State state;
 
@@ -20,16 +22,19 @@ namespace Runtime {
             buttonContainer.InstantiateButton("Exit", () => state = State.Exit);
         }
 
-        protected override IEnumerator WaitForCompletion() {
-            yield return new WaitWhile(() => state == State.Unknown);
+        public IEnumerator WaitForCompletion() {
+            do {
+                yield return new WaitWhile(() => state == State.Unknown);
 
-            switch (state) {
-                case State.Start:
-                    yield return newGameState.InstantiateAndWaitForCompletion();
-                    break;
-                case State.Exit:
-                    break;
-            }
+                switch (state) {
+                    case State.Start:
+                        gameObject.SetActive(false);
+                        yield return newGamePrefab.InstantiateAndWaitForCompletion();
+                        gameObject.SetActive(true);
+                        state = State.Unknown;
+                        break;
+                }
+            } while (state != State.Exit);
         }
     }
 }

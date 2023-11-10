@@ -6,10 +6,9 @@ namespace Runtime {
     sealed class GameManager : MonoBehaviour {
         internal static GameManager instance { get; private set; }
 
+        [Header("Prefabs")]
         [SerializeField]
-        UIState mainMenuState;
-
-        [Space]
+        GameObject mainMenuPrefab;
         [SerializeField]
         internal Button buttonPrefab;
 
@@ -18,7 +17,7 @@ namespace Runtime {
         }
 
         IEnumerator Start() {
-            yield return mainMenuState.InstantiateAndWaitForCompletion();
+            yield return mainMenuPrefab.InstantiateAndWaitForCompletion();
 
             Application.Quit();
 #if UNITY_EDITOR

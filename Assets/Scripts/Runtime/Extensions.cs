@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,6 +25,15 @@ namespace Runtime {
         }
         internal static void BindTo<T>(this Component component, T model) {
             component.gameObject.BindTo(model);
+        }
+        internal static IEnumerator InstantiateAndWaitForCompletion(this GameObject prefab) {
+            var instance = UnityObject.Instantiate(prefab);
+
+            foreach (var state in instance.GetComponents<IUIState>()) {
+                yield return state.WaitForCompletion();
+            }
+
+            UnityObject.Destroy(instance);
         }
     }
 }
