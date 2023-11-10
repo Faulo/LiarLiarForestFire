@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 2094324817657103274}
   - component: {fileID: 3713437398424043786}
   - component: {fileID: 9141477123796474086}
+  - component: {fileID: 1597941162186388642}
   m_Layer: 5
   m_Name: P_Button
   m_TagString: Untagged
@@ -267,4 +268,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3713437398424043786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1597941162186388642}
+        m_TargetAssemblyTypeName: Runtime.PlayAudio, Runtime
+        m_MethodName: PlayOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1597941162186388642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496641910824956702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6dd623a1741e63469cf556ceff81d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reference:
+    Guid:
+      Data1: -621228741
+      Data2: 1087848548
+      Data3: 761905062
+      Data4: -448898004
+    Path: event:/UIClick
