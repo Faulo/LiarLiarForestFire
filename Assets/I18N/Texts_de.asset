@@ -19,10 +19,8 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 530212200448
-    m_Localized: "Der Klimawandel ist jetzt gerade im Gange! Du bist Teil des Klimarats
-      der Tiere, und must die richtigen Entscheidungen treffen, um den Planeten zu
-      retten!\r\nAber achtung, manche dieser Reporter l\xFCgen dich vielleicht aus
-      eigenn\xFCtzigen Gr\xFCnden an.\r\n"
+    m_Localized: "Deine Stimme entscheidet die Zukunft des Planeten! Aber achtung,
+      manche dieser Reporter erz\xE4hlen vielleicht L\xFCgen!\n"
     m_Metadata:
       m_Items: []
   - m_Id: 746701201408
@@ -33,6 +31,10 @@ MonoBehaviour:
   - m_Id: 798937063424
     m_Localized: "Leider hast du den Planeten zerst\xF6rt. Vielleicht hat dich ja
       jemand angelogen?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102337835966464
+    m_Localized: Credits
     m_Metadata:
       m_Items: []
   references:

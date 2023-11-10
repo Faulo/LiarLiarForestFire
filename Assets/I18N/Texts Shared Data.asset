@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: GameOverFailure
     m_Metadata:
       m_Items: []
+  - m_Id: 102337835966464
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
