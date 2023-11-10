@@ -23,8 +23,8 @@ namespace Runtime.Screens {
         Button startButton;
 
         void Start() {
-            startButton = buttonContainer.InstantiateButton("Start", () => state = State.Start);
             buttonContainer.InstantiateButton("Switch language", () => state = State.SwitchLanguage);
+            startButton = buttonContainer.InstantiateButton("Start", () => state = State.Start);
             buttonContainer.InstantiateButton("Credits", () => state = State.SwitchCredits);
             buttonContainer.InstantiateButton("Exit", () => state = State.Exit);
         }
