@@ -1,11 +1,25 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Runtime {
     sealed class GameManager : MonoBehaviour {
         internal static GameManager instance { get; private set; }
+        internal static event Action<string> onStatusChange;
+
+        static string m_status;
+        internal static string status {
+            get => m_status;
+            set {
+                if (m_status != value) {
+                    m_status = value;
+                    onStatusChange?.Invoke(value);
+                }
+            }
+        }
 
         [Header("Prefabs")]
         [SerializeField]
@@ -21,13 +35,31 @@ namespace Runtime {
         [SerializeField]
         UnityEvent onLose = new();
 
+        [Header("Loca")]
+        [SerializeField]
+        LocalizedString introductionText = new();
+        [SerializeField]
+        LocalizedString winText = new();
+        [SerializeField]
+        LocalizedString loseText = new();
+
         void Awake() {
             instance = this;
         }
 
         public void OnEnable() {
-            GameState.onWin += onWin.Invoke;
-            GameState.onLose += onLose.Invoke;
+            GameState.onWin += HandleWin;
+            GameState.onLose += HandleLose;
+        }
+
+        void HandleWin() {
+            status = winText.GetLocalizedString();
+            onWin.Invoke();
+        }
+
+        void HandleLose() {
+            status = loseText.GetLocalizedString();
+            onLose.Invoke();
         }
 
         public void OnDisable() {
