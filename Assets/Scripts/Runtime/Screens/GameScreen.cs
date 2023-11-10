@@ -62,9 +62,9 @@ namespace Runtime.Screens {
 
             yield return new WaitUntil(() => round.guessedAnswer);
 
-            state.FinishRound(round);
-
             Destroy(actionsInstance);
+
+            state.FinishRound(round);
         }
     }
 }
