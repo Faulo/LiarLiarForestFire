@@ -19,9 +19,8 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 530212200448
-    m_Localized: "Du bist Teil des Klimarats der Tiere, und must die richtigen Entscheidungen
-      treffen, um den Planeten zu retten!\r\nAber achtung, manche dieser Reporter
-      l\xFCgen dich vielleicht aus eigenn\xFCtzigen Gr\xFCnden an.\r\n"
+    m_Localized: "Deine Stimme entscheidet die Zukunft des Planeten! Aber achtung,
+      manche dieser Reporter erz\xE4hlen vielleicht L\xFCgen!\n"
     m_Metadata:
       m_Items: []
   - m_Id: 746701201408
