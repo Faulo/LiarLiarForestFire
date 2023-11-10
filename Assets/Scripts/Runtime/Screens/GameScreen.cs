@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Runtime.Assets;
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,8 @@ namespace Runtime.Screens {
         InputActionAsset actionsInstance;
         [SerializeField, Range(0, 100)]
         int numberOfRounds = 10;
+        [SerializeField, Range(0, 10)]
+        float waitAfterPress = 1;
         [SerializeField]
         InputAsset[] inputs = Array.Empty<InputAsset>();
         [SerializeField]
@@ -39,6 +42,7 @@ namespace Runtime.Screens {
 
             while (state.isRunning) {
                 yield return CreateRound(state);
+                yield return Wait.forSeconds[waitAfterPress];
             }
 
             if (state.hasWon) {
