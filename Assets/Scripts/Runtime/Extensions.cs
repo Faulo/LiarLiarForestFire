@@ -18,12 +18,16 @@ namespace Runtime {
             return button;
         }
         internal static void BindTo<T>(this GameObject gameObject, T model) {
-            foreach (var receiver in gameObject.GetComponentsInChildren<IBindingReceiver<T>>()) {
-                receiver.Bind(model);
+            if (gameObject) {
+                foreach (var receiver in gameObject.GetComponentsInChildren<IBindingReceiver<T>>()) {
+                    receiver.Bind(model);
+                }
             }
         }
         internal static void BindTo<T>(this Component component, T model) {
-            component.gameObject.BindTo(model);
+            if (component) {
+                component.gameObject.BindTo(model);
+            }
         }
         internal static IEnumerator InstantiateAndWaitForCompletion(this GameObject prefab) {
             var instance = UnityObject.Instantiate(prefab);
