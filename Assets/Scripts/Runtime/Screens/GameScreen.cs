@@ -50,7 +50,7 @@ namespace Runtime.Screens {
         }
 
         IEnumerator CreateRound(GameState state) {
-            var round = state.StartRound(inputs.RandomElement());
+            var round = state.StartRound(inputs);
 
             actionsInstance = Instantiate(actionsAsset);
 

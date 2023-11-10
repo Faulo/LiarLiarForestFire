@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: R_Input_Y
   m_EditorClassIdentifier: 
   action: {fileID: 6944761359376258504, guid: 73f5112e6472f1a47b5a697508d6b6c9, type: 3}
-  reporterSprite: {fileID: 0}
+  buttonSprite: {fileID: 21300000, guid: c0f996a3e5d95b8479bdf22021e60aeb, type: 3}

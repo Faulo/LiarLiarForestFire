@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: R_Reporter_Air
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 73b16ca0afb20f245aa29a2209f8fbbc, type: 3}
+  truthTopics:
+  - {fileID: 11400000, guid: bfc49e3762e488c4bbac3057f44311c8, type: 2}

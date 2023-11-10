@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   successEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 765937883
+      Data2: 1333260940
+      Data3: -182230633
+      Data4: 1803418770
+    Path: event:/ChoiceRight
   failureEvent:
     Guid:
       Data1: 1747843892
