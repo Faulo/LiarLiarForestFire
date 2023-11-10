@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: Buttons
+  m_Name: Texts
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 678ece8ac4d661f46b6e320fd0d90abf, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 3a6798bea06bd144a8c44c9f751fedd9, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: 0a9b46c77ae80f0408fb7c79ee82ec13, type: 2}
-  - {fileID: 11400000, guid: 7ed728cf953fd5047a0aea71a7a4921e, type: 2}
+  - {fileID: 11400000, guid: b6d3407024cab194aa7e44081182c532, type: 2}
+  - {fileID: 11400000, guid: 2afad0a42e77ef54d815d6c7c5ba72c1, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:
