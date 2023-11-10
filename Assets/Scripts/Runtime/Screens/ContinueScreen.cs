@@ -34,8 +34,11 @@ namespace Runtime.Screens {
 
             switch (state) {
                 case State.Start:
-                    gameObject.SetActive(false);
-                    yield return nextScreenPrefab.InstantiateAndWaitForCompletion();
+                    if (nextScreenPrefab) {
+                        gameObject.SetActive(false);
+                        yield return nextScreenPrefab.InstantiateAndWaitForCompletion();
+                    }
+
                     break;
             }
         }
