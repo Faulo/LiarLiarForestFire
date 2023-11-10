@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 2003485955541601102}
   - component: {fileID: 6321378451359233047}
   - component: {fileID: 7626277960227868137}
+  - component: {fileID: 8739149492575534807}
   m_Layer: 5
   m_Name: P_UIState_GameOver
   m_TagString: Untagged
@@ -147,6 +148,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8739149492575534807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452241710133784420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c07a94c234efe4a8974d1a18cc78ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonContainer: {fileID: 0}
+  continueScreenText: Continue
+  nextScreenPrefab: {fileID: 0}
 --- !u!1 &7794624240275669328
 GameObject:
   m_ObjectHideFlags: 0

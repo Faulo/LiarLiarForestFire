@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Runtime {
     sealed class AudioState : MonoBehaviour {
         [SerializeField]
-        ParamRef intensityParam = new();
+        string intensityParam = "Intensity";
 
         void OnEnable() {
             GameState.onChange += UpdateState;
@@ -15,7 +15,7 @@ namespace Runtime {
         }
 
         public void UpdateState(GameState state) {
-            intensityParam.Value = state.currentRound;
+            RuntimeManager.StudioSystem.setParameterByName(intensityParam, state.currentRound);
         }
     }
 }

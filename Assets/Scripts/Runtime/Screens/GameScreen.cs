@@ -46,8 +46,6 @@ namespace Runtime.Screens {
 
                 yield return new WaitWhile(() => input == Input.Unknown);
 
-                Debug.Log(input);
-
                 state.currentRound++;
             }
 

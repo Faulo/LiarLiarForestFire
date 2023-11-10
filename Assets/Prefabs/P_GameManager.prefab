@@ -79,6 +79,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1a06f06cac6d94db761f677b5605fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityParam:
-    Name: Intensity
-    Value: 0
+  intensityParam: Intensity

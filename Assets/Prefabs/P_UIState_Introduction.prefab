@@ -233,4 +233,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonContainer: {fileID: 5919018081394953455}
-  newGamePrefab: {fileID: 4452241710133784420, guid: 5c38a84e5798eaf4781e2079c85cbed9, type: 3}
+  continueScreenText: Continue
+  nextScreenPrefab: {fileID: 4452241710133784420, guid: 5c38a84e5798eaf4781e2079c85cbed9, type: 3}

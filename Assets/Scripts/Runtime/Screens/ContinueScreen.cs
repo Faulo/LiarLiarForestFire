@@ -3,24 +3,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Runtime.Screens {
-    sealed class IntroductionScreen : MonoBehaviour, IScreen {
+    sealed class ContinueScreen : MonoBehaviour, IScreen {
         enum State {
             Unknown,
             Start
         }
         [SerializeField]
         Transform buttonContainer;
+        [SerializeField]
+        string continueScreenText = "Continue";
 
         [Header("Prefabs")]
         [SerializeField]
-        GameObject newGamePrefab;
+        GameObject nextScreenPrefab;
 
         State state;
 
         Button continueButton;
 
         void Start() {
-            continueButton = buttonContainer.InstantiateButton("Continue", () => state = State.Start);
+            continueButton = buttonContainer.InstantiateButton(continueScreenText, () => state = State.Start);
         }
 
         public IEnumerator WaitForCompletion() {
@@ -33,7 +35,7 @@ namespace Runtime.Screens {
             switch (state) {
                 case State.Start:
                     gameObject.SetActive(false);
-                    yield return newGamePrefab.InstantiateAndWaitForCompletion();
+                    yield return nextScreenPrefab.InstantiateAndWaitForCompletion();
                     break;
             }
         }
