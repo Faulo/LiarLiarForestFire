@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6478f73e58ccfaf439780a1abba30e93, type: 3}
-  m_Name: R_Topic_Ocean
+  m_Name: R_Topic_0_Weather
   m_EditorClassIdentifier: 
   successEvent:
     Guid:
@@ -21,12 +21,13 @@ MonoBehaviour:
     Path: event:/ChoiceRight
   failureEvent:
     Guid:
-      Data1: -1551604548
-      Data2: 1116152979
-      Data3: 503539362
-      Data4: 125362265
-    Path: event:/IceMelts
-  announcementSprite: {fileID: 21300000, guid: 06507cca294b0ff4d9d953d2f1bdc52b, type: 3}
+      Data1: -432205545
+      Data2: 1329442304
+      Data3: -31379569
+      Data4: -1203017755
+    Path: event:/Thunder
+  announcementSprite: {fileID: 21300000, guid: 240fa94dc101a19448f6e27bf99c206d, type: 3}
   backgroundProgressionSprites:
-  - {fileID: 21300000, guid: caeeb86c8ff073e4ebd7880f2014f41a, type: 3}
-  - {fileID: 21300000, guid: 99cfc097a4e9afc4485d3f6ba3bf43ec, type: 3}
+  - {fileID: 21300000, guid: 27af0a2c2d97d0d4a9968953b1bdab43, type: 3}
+  - {fileID: 21300000, guid: 62937b73f21dbf54581d48bdf6feebc7, type: 3}
+  - {fileID: 21300000, guid: 6532323b35535d844a20a116322139ee, type: 3}
