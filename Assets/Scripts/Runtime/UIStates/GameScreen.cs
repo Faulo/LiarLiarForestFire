@@ -18,6 +18,9 @@ namespace Runtime {
             X,
             Y
         }
+        [SerializeField]
+        InputActionAsset actionsAsset;
+        InputActionAsset actionsInstance;
 
         [Header("Prefabs")]
         [SerializeField]
@@ -27,25 +30,19 @@ namespace Runtime {
 
         Input input;
 
-        void Start() {
+        void OnEnable() {
+            actionsInstance = Instantiate(actionsAsset);
+            actionsInstance.FindAction(nameof(Input.A)).performed += _ => input = Input.A;
+            actionsInstance.FindAction(nameof(Input.B)).performed += _ => input = Input.B;
+            actionsInstance.FindAction(nameof(Input.X)).performed += _ => input = Input.X;
+            actionsInstance.FindAction(nameof(Input.Y)).performed += _ => input = Input.Y;
+            actionsInstance.Enable();
+        }
+        void OnDisable() {
+            Destroy(actionsInstance);
         }
 
-        void Update() {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame) {
-                input = Input.A;
-            }
-
-            if (Keyboard.current.digit2Key.wasPressedThisFrame) {
-                input = Input.B;
-            }
-
-            if (Keyboard.current.digit3Key.wasPressedThisFrame) {
-                input = Input.X;
-            }
-
-            if (Keyboard.current.digit4Key.wasPressedThisFrame) {
-                input = Input.Y;
-            }
+        void Start() {
         }
 
         public IEnumerator WaitForCompletion() {
