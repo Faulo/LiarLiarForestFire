@@ -6,6 +6,8 @@ namespace Runtime {
     sealed class ReportersDisplay : MonoBehaviour {
         [SerializeField]
         GameObject[] reporterPrefabs = Array.Empty<GameObject>();
+        [SerializeField]
+        int firstReporterChildIndex = 1;
 
         void OnEnable() {
             GameRound.onStart += UpdateState;
@@ -23,7 +25,7 @@ namespace Runtime {
 
             if (prefab) {
                 var instance = Instantiate(prefab, transform);
-                int i = 0;
+                int i = firstReporterChildIndex;
                 foreach (var (reporter, input) in round.reporterAndInputs) {
                     instance.transform.GetChild(i).BindTo((reporter, input));
                     i++;
