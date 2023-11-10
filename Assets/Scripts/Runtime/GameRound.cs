@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Runtime.Assets;
-using UnityRandom = UnityEngine.Random;
 
 namespace Runtime {
     sealed record GameRound {
@@ -40,7 +39,7 @@ namespace Runtime {
         internal TopicAsset topic;
         internal Dictionary<ReporterAsset, InputAsset> reporterAndInputs = new();
 
-        internal int reporterCount => UnityRandom.Range(1, 4);
+        internal int reporterCount => reporterAndInputs.Count;
 
         internal bool isCorrect => correctAnswer == guessedAnswer;
 

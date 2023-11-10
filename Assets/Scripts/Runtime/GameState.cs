@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.Assets;
 using Slothsoft.UnityExtensions;
+using UnityRandom = UnityEngine.Random;
 
 namespace Runtime {
     sealed record GameState {
@@ -76,12 +78,23 @@ namespace Runtime {
             onChangeInternal?.Invoke(this);
         }
 
-        internal GameRound StartRound(InputAsset correctAnswer) {
+        internal GameRound StartRound(IEnumerable<InputAsset> answers) {
             currentRound++;
+
+            var correctAnswer = answers.RandomElement();
+
             var round = new GameRound {
                 correctAnswer = correctAnswer,
                 topic = topics.RandomElement()
             };
+
+            int reporterCount = UnityRandom.Range(1, 4);
+            foreach (var reporter in reporters.Shuffle().Take(reporterCount)) {
+                var input = reporter.IsTruthfulAbout(round.topic)
+                    ? correctAnswer
+                    : answers.Without(correctAnswer).RandomElement();
+                round.reporterAndInputs[reporter] = input;
+            }
 
             rounds.Add(round);
 
