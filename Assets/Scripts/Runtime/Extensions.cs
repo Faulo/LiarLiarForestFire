@@ -12,8 +12,9 @@ namespace Runtime {
         internal static Button InstantiateButton(this Transform parent, string label, UnityAction onClick) {
             var button = UnityObject.Instantiate(GameManager.instance.buttonPrefab, parent);
 
-            button.BindTo(label);
-            new LocalizedString("Buttons", label).StringChanged += button.BindTo;
+            var localizedLabel = new LocalizedString("Buttons", label);
+            localizedLabel.StringChanged += button.BindTo;
+            button.BindTo(localizedLabel.GetLocalizedString());
 
             button.onClick.AddListener(onClick);
 

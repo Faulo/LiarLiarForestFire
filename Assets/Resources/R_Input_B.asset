@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action: {fileID: 4137040078638296781, guid: 73f5112e6472f1a47b5a697508d6b6c9, type: 3}
   buttonSprite: {fileID: 21300000, guid: a1c9051d7e88bb84290dc0c03b57382a, type: 3}
+  keyboardSprite: {fileID: 21300000, guid: d066999dda953a444853d50cd640b4aa, type: 3}

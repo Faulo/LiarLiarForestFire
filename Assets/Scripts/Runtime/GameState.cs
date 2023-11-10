@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Runtime.Assets;
 using Slothsoft.UnityExtensions;
+using UnityEngine;
 using UnityRandom = UnityEngine.Random;
 
 namespace Runtime {
@@ -91,7 +92,7 @@ namespace Runtime {
                 topic = topics.RandomElement()
             };
 
-            int reporterCount = UnityRandom.Range(1, 4);
+            int reporterCount = Mathf.Min(4, currentRound);
             foreach (var reporter in reporters.Shuffle().Take(reporterCount)) {
                 var input = IsTruthfulAbout(reporter, round.topic)
                     ? correctAnswer
