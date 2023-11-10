@@ -524,6 +524,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonContainer: {fileID: 2454537143165825727}
   newGamePrefab: {fileID: 4452241710133784420, guid: a463c7dbbc75ac54da9c5165de11837a, type: 3}
+  creditsText:
+    m_TableReference:
+      m_TableCollectionName: GUID:3a6798bea06bd144a8c44c9f751fedd9
+    m_TableEntryReference:
+      m_KeyId: 102337835966464
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &4770801823284471212
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,8 +647,8 @@ MonoBehaviour:
 
     v{Application.version}'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa6786eb7dbb44d44a25daacb3cef7bc, type: 2}
+  m_sharedMaterial: {fileID: -335641203920968030, guid: fa6786eb7dbb44d44a25daacb3cef7bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

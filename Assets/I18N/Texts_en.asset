@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 530212200448
-    m_Localized: 'Climate change is happening right now! You are the Animal Climate
-      Council, and must make the right decisions to save the planet!
+    m_Localized: 'You are the Animal Climate Council, and must make the right decisions
+      to save the planet!
 
-      But watch
-      out, some of those newscasters might be lying to you for their own benefit!
+      But watch out, some of those newscasters might be
+      not be telling the truth!
 
 '
     m_Metadata:
@@ -40,6 +40,10 @@ MonoBehaviour:
   - m_Id: 798937063424
     m_Localized: Unfortunately, you killed the planet. Maybe someone was lying to
       you?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102337835966464
+    m_Localized: Credits
     m_Metadata:
       m_Items: []
   references:
