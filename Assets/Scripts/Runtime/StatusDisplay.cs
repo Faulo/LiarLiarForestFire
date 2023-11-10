@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace Runtime {
     sealed class StatusDisplay : MonoBehaviour {
+        [SerializeField]
+        GameObject fallbackObject;
+        [SerializeField]
+        GameObject targetObject;
+
         void OnEnable() {
             GameManager.onStatusChange += UpdateState;
         }
@@ -11,7 +16,13 @@ namespace Runtime {
         }
 
         public void UpdateState(string status) {
-            gameObject.BindTo(status);
+            if (targetObject) {
+                targetObject.BindTo(status);
+            }
+
+            if (fallbackObject) {
+                fallbackObject.SetActive(string.IsNullOrEmpty(status));
+            }
         }
     }
 }
