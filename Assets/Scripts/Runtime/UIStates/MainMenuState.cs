@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Runtime {
     sealed class MainMenuState : MonoBehaviour, IUIState {
@@ -16,14 +17,19 @@ namespace Runtime {
         GameObject newGamePrefab;
 
         State state;
+        Button startButton;
 
         void Start() {
-            buttonContainer.InstantiateButton("Start", () => state = State.Start, true);
+            startButton = buttonContainer.InstantiateButton("Start", () => state = State.Start);
             buttonContainer.InstantiateButton("Exit", () => state = State.Exit);
         }
 
         public IEnumerator WaitForCompletion() {
+            yield return new WaitUntil(() => startButton);
+
             do {
+                startButton.Select();
+
                 yield return new WaitWhile(() => state == State.Unknown);
 
                 switch (state) {

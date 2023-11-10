@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Runtime {
     sealed class IntroductionState : MonoBehaviour, IUIState {
@@ -16,11 +17,17 @@ namespace Runtime {
 
         State state;
 
+        Button continueButton;
+
         void Start() {
-            buttonContainer.InstantiateButton("Continue", () => state = State.Start, true);
+            continueButton = buttonContainer.InstantiateButton("Continue", () => state = State.Start);
         }
 
         public IEnumerator WaitForCompletion() {
+            yield return new WaitUntil(() => continueButton);
+
+            continueButton.Select();
+
             yield return new WaitWhile(() => state == State.Unknown);
 
             switch (state) {
