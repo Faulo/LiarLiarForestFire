@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace Runtime {
     abstract class UIState : MonoBehaviour {
-        internal abstract IEnumerator WaitForCompletion();
+        protected abstract IEnumerator WaitForCompletion();
+
+        internal IEnumerator InstantiateAndWaitForCompletion() {
+            var instance = Instantiate(this);
+            yield return instance.WaitForCompletion();
+            Destroy(instance.gameObject);
+        }
     }
 }

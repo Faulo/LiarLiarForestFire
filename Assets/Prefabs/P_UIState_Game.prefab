@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 7626277960227868137}
   - component: {fileID: -3397834010996724020}
   m_Layer: 5
-  m_Name: P_MainMenu
+  m_Name: P_UIState_Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
