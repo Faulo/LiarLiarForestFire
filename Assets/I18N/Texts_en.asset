@@ -40,7 +40,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 102337835966464
-    m_Localized: Credits
+    m_Localized: "A game by \nCursed Creations\n\nDaniel Schulz\nNic Schilling\nTina
+      Wolfrum"
     m_Metadata:
       m_Items: []
   references:
