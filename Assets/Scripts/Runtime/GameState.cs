@@ -102,7 +102,7 @@ namespace Runtime {
         TopicGroup CreateUniqueTopicGroup(IReadOnlyList<TopicAsset> topics) {
             TopicGroup topicGroup = default;
             do {
-                topicGroup = new TopicGroup(topics.Shuffle().Take(UnityRandom.Range(0, 4)));
+                topicGroup = new TopicGroup(topics.Shuffle().Take(UnityRandom.Range(0, 3)));
             } while (reportersAndTopics.ContainsValue(topicGroup));
             return topicGroup;
         }
