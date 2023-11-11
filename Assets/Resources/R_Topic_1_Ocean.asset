@@ -27,6 +27,7 @@ MonoBehaviour:
       Data4: 125362265
     Path: event:/IceMelts
   announcementSprite: {fileID: 21300000, guid: 06507cca294b0ff4d9d953d2f1bdc52b, type: 3}
+  announcementMaterial: {fileID: 2100000, guid: f512923dad262df45bb402c0f781ce88, type: 2}
   backgroundProgressionSprites:
   - {fileID: 21300000, guid: caeeb86c8ff073e4ebd7880f2014f41a, type: 3}
   - {fileID: 21300000, guid: 99cfc097a4e9afc4485d3f6ba3bf43ec, type: 3}

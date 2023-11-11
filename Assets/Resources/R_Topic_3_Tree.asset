@@ -27,6 +27,7 @@ MonoBehaviour:
       Data4: -438126249
     Path: event:/ForestBurns
   announcementSprite: {fileID: 21300000, guid: 789575a82b69bfc4dae3048970eaddbb, type: 3}
+  announcementMaterial: {fileID: 2100000, guid: 0b3880218a4e48444bbfbfb63eaa9668, type: 2}
   backgroundProgressionSprites:
   - {fileID: 21300000, guid: fb054bbddea40b2409ebef721c1fc072, type: 3}
   - {fileID: 21300000, guid: d588d6444db7b19419c728f60a0b10ff, type: 3}

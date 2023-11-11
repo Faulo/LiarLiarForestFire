@@ -27,6 +27,7 @@ MonoBehaviour:
       Data4: 599828851
     Path: event:/Earthquake
   announcementSprite: {fileID: 21300000, guid: 2ff7700676489ce48a20b4722864d575, type: 3}
+  announcementMaterial: {fileID: 2100000, guid: 8bf0f8f9810a0f945bdde102c32483cc, type: 2}
   backgroundProgressionSprites:
   - {fileID: 21300000, guid: cfcb301cfa8c8264d82cc7c1c2236b3c, type: 3}
   - {fileID: 21300000, guid: 31e0303956cbf344585b9ec4dda70ca9, type: 3}

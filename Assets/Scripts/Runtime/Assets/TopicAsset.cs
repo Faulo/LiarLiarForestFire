@@ -15,6 +15,8 @@ namespace Runtime.Assets {
         [SerializeField]
         internal Sprite announcementSprite;
         [SerializeField]
+        internal Material announcementMaterial;
+        [SerializeField]
         Sprite[] backgroundProgressionSprites = Array.Empty<Sprite>();
         internal int maxDestruction => backgroundProgressionSprites.Length - 1;
 
