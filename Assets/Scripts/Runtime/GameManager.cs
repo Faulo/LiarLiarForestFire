@@ -9,6 +9,7 @@ namespace Runtime {
     sealed class GameManager : MonoBehaviour {
         internal static GameManager instance { get; private set; }
         internal static event Action<string> onStatusChange;
+        internal static event Action<int> onYearChange;
 
         static string m_status;
         static string status {
