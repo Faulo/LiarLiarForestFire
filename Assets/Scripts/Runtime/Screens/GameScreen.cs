@@ -13,6 +13,8 @@ namespace Runtime.Screens {
         [SerializeField, Range(0, 100)]
         int numberOfRounds = 10;
         [SerializeField, Range(0, 10)]
+        float waitAfterSign = 0.5f;
+        [SerializeField, Range(0, 10)]
         float waitAfterSuccess = 1;
         [SerializeField, Range(0, 10)]
         float waitAfterFailure = 1;
@@ -30,6 +32,8 @@ namespace Runtime.Screens {
         GameObject winPrefab;
         [SerializeField]
         GameObject losePrefab;
+        [SerializeField]
+        GameObject signPrefab;
 
         public IEnumerator WaitForCompletion() {
             var state = new GameState(numberOfRounds, topics, reporters);
@@ -66,9 +70,16 @@ namespace Runtime.Screens {
 
             Destroy(actionsInstance);
 
+            var instance = Instantiate(signPrefab);
+            instance.BindTo(round.guessedAnswer);
+
+            yield return Wait.forSeconds[waitAfterSign];
+
             state.FinishRound(round);
 
             yield return Wait.forSeconds[round.isCorrect ? waitAfterSuccess : waitAfterFailure];
+
+            Destroy(instance);
         }
     }
 }
