@@ -15,11 +15,13 @@ namespace Runtime {
         public void UpdateState(GameRound round) {
             gameObject.BindTo(default(string));
             gameObject.BindTo(round.topic.announcementSprite);
+            gameObject.BindTo(round.topic.announcementMaterial);
         }
 
         public void UpdateStatus(string status) {
             gameObject.BindTo(status);
             gameObject.BindTo(default(Sprite));
+            gameObject.BindTo(default(Material));
         }
     }
 }
