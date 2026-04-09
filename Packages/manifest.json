@@ -7,13 +7,7 @@
         "com.domybest.mybox",
         "net.slothsoft.unity-extensions",
         "com.inkle.ink-unity-integration",
-        "nl.jeffreylanters.tweens"
-      ]
-    },
-    {
-      "name": "Unity NuGet",
-      "url": "https://unitynuget-registry.azurewebsites.net",
-      "scopes": [
+        "nl.jeffreylanters.tweens",
         "org.nuget"
       ]
     }
@@ -32,7 +26,6 @@
     "com.unity.ui.builder": "2.0.0",
     "net.slothsoft.unity-extensions": "3.0.0",
     "org.nuget.csvhelper": "30.0.1",
-    "unity-dependencies-hunter": "https://github.com/AlexeyPerov/Unity-Dependencies-Hunter.git#upm",
     "com.unity.modules.androidjni": "1.0.0"
   }
 }
